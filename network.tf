@@ -37,10 +37,10 @@ resource "aws_subnet" "public_subnet_1a" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.project}-${var.environment}-public1"
+    Name    = "${var.project}-${var.environment}-public1"
     Project = var.project
     Env     = var.environment
-    Type = "public" 
+    Type    = "public"
   }
 }
 
@@ -54,7 +54,7 @@ resource "aws_subnet" "public_subnet_1c" {
     Name    = "${var.project}-${var.environment}-public2"
     Project = var.project
     Env     = var.environment
-    Type = "public" 
+    Type    = "public"
   }
 }
 
@@ -91,29 +91,29 @@ resource "aws_route_table_association" "public_rt_1c" {
 # Private Subnet
 # ---------------------------------------------
 resource "aws_subnet" "private_subnet_1a" {
-  vpc_id            = aws_vpc.vpc.id
-  availability_zone = "ap-northeast-1a"
-  cidr_block        = "10.0.10.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+  availability_zone       = "ap-northeast-1a"
+  cidr_block              = "10.0.10.0/24"
   map_public_ip_on_launch = false
 
   tags = {
     Name    = "${var.project}-${var.environment}-private1"
     Project = var.project
     Env     = var.environment
-    Type = "private" 
+    Type    = "private"
   }
 }
 
 resource "aws_subnet" "private_subnet_1c" {
-  vpc_id            = aws_vpc.vpc.id
-  availability_zone = "ap-northeast-1c"
-  cidr_block        = "10.0.11.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+  availability_zone       = "ap-northeast-1c"
+  cidr_block              = "10.0.11.0/24"
   map_public_ip_on_launch = false
 
   tags = {
     Name    = "${var.project}-${var.environment}-private2"
     Project = var.project
     Env     = var.environment
-    Type = "private" 
+    Type    = "private"
   }
 }
