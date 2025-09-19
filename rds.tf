@@ -57,7 +57,7 @@ resource "aws_db_instance" "mysql_standalone" {
   engine         = "mysql"
   engine_version = "8.0.40"
 
-  identifier = "${var.project}-${var.environment}-mysql-standalone"
+  identifier = "${var.project}-${var.environment}-rds"
 
   username = "admin"
   password = random_string.db_password.result
@@ -65,7 +65,6 @@ resource "aws_db_instance" "mysql_standalone" {
   instance_class = "db.t3.micro"
 
   allocated_storage     = 20
-  max_allocated_storage = 50
   storage_type          = "gp2"
   storage_encrypted     = false
 
@@ -80,11 +79,11 @@ resource "aws_db_instance" "mysql_standalone" {
   option_group_name    = aws_db_option_group.mysql_standalone_optiongroup.name
 
   backup_window              = "04:00-05:00"
-  backup_retention_period    = 7
+  backup_retention_period    = 0
   maintenance_window         = "Mon:05:00-Mon:08:00"
   auto_minor_version_upgrade = false
 
-  deletion_protection = true
+  deletion_protection = false
   skip_final_snapshot = true
 
   apply_immediately = true

@@ -2,12 +2,12 @@
 # EC2 instance
 # ---------------------------------------------
 resource "aws_instance" "ec2_1a" {
-  ami                    = data.aws_ami.amazon_linux.id
-  instance_type          = "t3.micro"
-  subnet_id              = aws_subnet.public_subnet_1a.id
+  ami                         = data.aws_ami.amazon_linux.id
+  instance_type               = "t3.micro"
+  subnet_id                   = aws_subnet.public_subnet_1a.id
   associate_public_ip_address = true
-  iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
-  vpc_security_group_ids = [aws_security_group.allow_ec2.id]
+  iam_instance_profile        = aws_iam_instance_profile.ec2_profile.name
+  vpc_security_group_ids      = [aws_security_group.allow_ec2.id]
 
   root_block_device {
     volume_type = "gp3"
@@ -23,12 +23,12 @@ resource "aws_instance" "ec2_1a" {
 }
 
 resource "aws_instance" "ec2_1c" {
-  ami                    = data.aws_ami.amazon_linux.id
-  instance_type          = "t3.micro"
-  subnet_id              = aws_subnet.public_subnet_1c.id
+  ami                         = data.aws_ami.amazon_linux.id
+  instance_type               = "t3.micro"
+  subnet_id                   = aws_subnet.public_subnet_1c.id
   associate_public_ip_address = true
-  iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
-  vpc_security_group_ids = [aws_security_group.allow_ec2.id]
+  iam_instance_profile        = aws_iam_instance_profile.ec2_profile.name
+  vpc_security_group_ids      = [aws_security_group.allow_ec2.id]
 
   root_block_device {
     volume_type = "gp3"
